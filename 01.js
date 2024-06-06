@@ -19,11 +19,20 @@ let interfaceCapture = readline.createInterface({
     output: process.stdout
 });
 
-interfaceCapture.question("Cúal es su peso actual?: ", function(peso){
-    interfaceCapture.question("Cúal es su altura ?: ", function(altura){
-    let bmi = peso/(Math.pow(altura, 2));
-    console.log("su peso es: " + peso + " y su altura es: " + altura);
+interfaceCapture.question("Cúal es su peso actual (en kilogramos)?: ", function(peso){
+    interfaceCapture.question("Cúal es su altura (en metros) ?: ", function(altura){
+    let bmi = Math.round(peso/(Math.pow(altura, 2)));
+    console.log("su peso es: " + peso + "kg" + " y su altura es: " + altura + "m");
     console.log("Su BMI es de: " + bmi);
+    if(bmi < 18.5){
+        console.log("Su bmi se considera bajo");
+    }else if(bmi >= 18.5 && bmi <= 24.9){
+        console.log("Su bmi se considera normal");
+    }else if(bmi >= 25 && bmi <=29.9){
+        console.log("Su bmi se considera con SOBREPESO");
+    }else if(bmi >= 30){
+        console.log("Su bmi se considera con OBESIDAD");
+    }
 
     interfaceCapture.close();
 
