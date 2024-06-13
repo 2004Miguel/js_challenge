@@ -28,8 +28,8 @@ interfaceCapture.question("Ingresa tus nombres: ", function(names){
             name3[i]=name[i];
             surname3[i]=surname[i];
         }
-        let finalName = name3.concat(surname3).toString();
-        console.log(finalName);
+        let finalName = name3.concat(surname3);
+        console.log(finalName.join(""));
         interfaceCapture.close();
     })
 })
