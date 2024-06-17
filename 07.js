@@ -13,22 +13,45 @@
 // de correo electrónico válidos, pero servirá para este desafío.
 // Imprime un mensaje indicando si la dirección de correo electrónico es válida o no.
 
-let correo = "alguien@algo.com";
+let correo = "md3r@.com";
 let arroba = 0;
 let punto = 0;
-let caracter = 0;
+let caracterAntes = 0;
+let caracterDespues = 0;
 let acorreo = correo.split("");
-console.log(typeof(acorreo[0]));
+let indexArroba=0;
+let indexPunto=0;
+
+//foreach necesario para saber el índice del arroba y del punto
+acorreo.forEach((el, index) =>{
+    if(el=="@"){
+        indexArroba=index;
+    }
+    if(el=="."){
+        indexPunto=index;
+    }
+});
 
 acorreo.forEach((el, index) =>{
     if(el=="@"){
+        indexArroba=index;
         arroba += 1;
     }
-    if(typeof(el)=="string"){
-        caracter += 1;
+    if((typeof(el)=="string" || (typeof(el)=="number")) && (index<indexArroba)){
+        caracterAntes += 1;
     }
-    if(el == "."){
+    if((typeof(el)=="string" && index>indexPunto)){
+        caracterDespues += 1;
+    }
+    if((el == ".") && (index>indexArroba)){
+        indexPunto=index;
         punto += 1;
     }
-})
+});
+
+if(arroba!=0 && caracterAntes!=0 && caracterDespues!=0 && punto!=0){
+    console.log("El correo cumple con las condiciones");
+}else{
+    console.log("El correo no cumple con las condiciones");
+}
 
