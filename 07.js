@@ -55,3 +55,4 @@ if(arroba!=0 && caracterAntes!=0 && caracterDespues!=0 && punto!=0){
     console.log("El correo no cumple con las condiciones");
 }
 
+
