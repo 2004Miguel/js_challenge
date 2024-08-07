@@ -13,14 +13,36 @@
 // los espacios y otros caracteres no alfabéticos.
 // Imprime el mensaje cifrado.
 
-let alphabetMin = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 
-    'u', 'v', 'w', 'x', 'y', 'z'
+let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
 ];
-let alphabetMayus = [];
-alphabetMayus = alphabetMin.forEach((el, index)=>{
-    let mayus = el.toUpperCase();
-    alphabetMayus[index] = mayus;
-    return alphabetMayus[index];
-});
-console.log(alphabetMin);
-console.log(alphabetMayus);
+let message = "hola estoy ocupado";
+let position = 3;
+
+function cifrado(message){
+    let messageArray = message.split("");
+    messageArray.forEach((el, index) => {
+        alphabet.forEach((elemen, indx) =>{
+            if(el == elemen){
+                let pos = indx + 3;
+                if(indx == 27){
+                    pos = 2;
+                }
+                if(indx == 26){
+                    pos = 1;
+                }
+                if(indx == 25){
+                    pos = 0;
+                }
+                if(el == ""){
+                    console.log("_");
+                }
+                console.log(alphabet[pos]);
+                // console.log(el, elemen);
+            }
+        })
+        // console.log(index);
+    });
+    // console.log(messageArray);
+}
+
+cifrado(message);
